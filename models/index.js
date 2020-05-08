@@ -3,7 +3,8 @@ const mongoose, {Schema} = require("mongoose");
 const itemSchema = new Schema({
  category: {
   type: String,
-  required: true
+  required: true,
+  enum: ["Produce", "Meats", "Dry Goods", "Refrigerated", "Other"]
  },
  name: {
   type: String,
@@ -12,6 +13,7 @@ const itemSchema = new Schema({
  },
  status: {
   type: Boolean,
+  required: true,
   default: false
  }
 })
