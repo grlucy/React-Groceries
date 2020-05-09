@@ -2,9 +2,15 @@ import React from "react";
 
 function Header() {
   return (
-    <>
-      <p>This is Header</p>
-    </>
+    <header>
+      <div className="container">
+        <div className="row">
+          <div className="col text-center">
+            <p>Grocery List</p>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }
 
