@@ -26,13 +26,15 @@ function ItemForm() {
                     />
                   </div>
                   <div className="col-sm-4 mb-2">
-                    <select className="custom-select">
-                      <option selected>Category...</option>
-                      <option>Produce</option>
-                      <option>Meats</option>
-                      <option>Dry Goods</option>
-                      <option>Refrigerated</option>
-                      <option>Other</option>
+                    <select className="custom-select" defaultValue="">
+                      <option value="" disabled hidden>
+                        Category...
+                      </option>
+                      <option value="Produce">Produce</option>
+                      <option value="Meats">Meats</option>
+                      <option value="Dry Goods">Dry Goods</option>
+                      <option value="Refrigerated">Refrigerated</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                   <div className="col-sm mb-2">

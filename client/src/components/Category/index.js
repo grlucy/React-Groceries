@@ -13,14 +13,14 @@ function Category(props) {
             <div className="row pb-2">
               <div className="col d-flex">
                 <p className="category-icon flex-width">
-                  <i class={props.icon}></i>
+                  <i className={props.icon}></i>
                 </p>
                 <div>
                   {props.items
                     ? props.items.map((item) => (
                         <p key={item._id}>
                           <span className="item-name">{item.name}</span>{" "}
-                          <i class="fas fa-times-circle"></i>
+                          <i className="fas fa-times-circle"></i>
                         </p>
                       ))
                     : null}
