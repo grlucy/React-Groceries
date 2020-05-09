@@ -1,0 +1,25 @@
+.category-border {
+  border-bottom: 1px solid #ddd;
+}
+.category-icon {
+  font-size: calc(20px + 2vw);
+  margin-top: 0;
+}
+#Produce .category-icon {
+  color: rgb(194, 11, 11);
+}
+#Meats .category-icon {
+  color: rgb(0, 161, 167);
+}
+#Dry .category-icon {
+  color: rgb(228, 175, 0);
+}
+#Refrigerated .category-icon {
+  color: rgb(165, 11, 179);
+}
+#Other .category-icon {
+  color: rgb(158, 158, 158);
+}
+.flex-width {
+  width: calc(40px + 5vw);
+}

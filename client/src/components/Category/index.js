@@ -1,17 +1,34 @@
 import React from "react";
 
+import "./style.css";
+
 function Category(props) {
+  const category = props.category.split(" ");
+
   return (
     <>
-      <p>
-        <i class={props.icon}></i>
-      </p>
-      <p>This is the {props.category} category</p>
-      <ul>
-        {props.items
-          ? props.items.map((item) => <li key={item._id}>{item.name}</li>)
-          : null}
-      </ul>
+      <div className="row">
+        <div className="col">
+          <div className="category-border mt-2 p-2" id={category[0]}>
+            <div className="row pb-2">
+              <div className="col d-flex">
+                <p className="category-icon flex-width">
+                  <i class={props.icon}></i>
+                </p>
+                <div>
+                  {props.items
+                    ? props.items.map((item) => (
+                        <p key={item._id}>
+                          {item.name} <i class="fas fa-times-circle"></i>
+                        </p>
+                      ))
+                    : null}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

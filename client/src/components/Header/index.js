@@ -5,9 +5,9 @@ function Header() {
     <header className="bg-light">
       <div className="container">
         <div className="row">
-          <div className="col text-center">
+          <div className="col">
             <p
-              className="mt-3"
+              className="mt-3 mb-3"
               style={{
                 fontFamily: "Covered By Your Grace, cursive",
                 fontSize: "45px",

@@ -60,33 +60,41 @@ function App() {
     <>
       <div id="main-content">
         <Header />
-        {produce[0] ? (
-          <Category
-            category="Produce"
-            items={produce}
-            icon="fas fa-apple-alt"
-          />
-        ) : null}
-        {meats[0] ? (
-          <Category category="Meats" items={meats} icon="fas fa-fish" />
-        ) : null}
-        {dryGoods[0] ? (
-          <Category
-            category="Dry Goods"
-            items={dryGoods}
-            icon="fas fa-bread-slice"
-          />
-        ) : null}
-        {refrigerated[0] ? (
-          <Category
-            category="Refrigerated"
-            items={refrigerated}
-            icon="fas fa-ice-cream"
-          />
-        ) : null}
-        {other[0] ? (
-          <Category category="Other" items={other} icon="fas fa-toilet-paper" />
-        ) : null}
+        <section>
+          <div className="container">
+            {produce[0] ? (
+              <Category
+                category="Produce"
+                items={produce}
+                icon="fas fa-apple-alt"
+              />
+            ) : null}
+            {meats[0] ? (
+              <Category category="Meats" items={meats} icon="fas fa-fish" />
+            ) : null}
+            {dryGoods[0] ? (
+              <Category
+                category="Dry Goods"
+                items={dryGoods}
+                icon="fas fa-bread-slice"
+              />
+            ) : null}
+            {refrigerated[0] ? (
+              <Category
+                category="Refrigerated"
+                items={refrigerated}
+                icon="fas fa-ice-cream"
+              />
+            ) : null}
+            {other[0] ? (
+              <Category
+                category="Other"
+                items={other}
+                icon="fas fa-toilet-paper"
+              />
+            ) : null}
+          </div>
+        </section>
         <ItemForm />
       </div>
       <Footer />
