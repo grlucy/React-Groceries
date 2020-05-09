@@ -58,15 +58,19 @@ function App() {
 
   return (
     <>
-      <Header />
-      {produce[0] ? <Category category="Produce" items={produce} /> : null}
-      {meats[0] ? <Category category="Meats" items={meats} /> : null}
-      {dryGoods[0] ? <Category category="Dry Goods" items={dryGoods} /> : null}
-      {refrigerated[0] ? (
-        <Category category="Refrigerated" items={refrigerated} />
-      ) : null}
-      {other[0] ? <Category category="Other" items={other} /> : null}
-      <ItemForm />
+      <div id="main-content">
+        <Header />
+        {produce[0] ? <Category category="Produce" items={produce} /> : null}
+        {meats[0] ? <Category category="Meats" items={meats} /> : null}
+        {dryGoods[0] ? (
+          <Category category="Dry Goods" items={dryGoods} />
+        ) : null}
+        {refrigerated[0] ? (
+          <Category category="Refrigerated" items={refrigerated} />
+        ) : null}
+        {other[0] ? <Category category="Other" items={other} /> : null}
+        <ItemForm />
+      </div>
       <Footer />
     </>
   );
