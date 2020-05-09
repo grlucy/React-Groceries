@@ -7,6 +7,7 @@ import API from "./utils/API";
 import Header from "./components/Header";
 import Category from "./components/Category";
 import ItemForm from "./components/ItemForm";
+import Footer from "./components/Footer";
 
 function App() {
   const [produce, setProduce] = useState([]);
@@ -58,12 +59,15 @@ function App() {
   return (
     <>
       <Header />
-      <Category category="Produce" items={produce} />
-      <Category category="Meats" items={meats} />
-      <Category category="Dry Goods" items={dryGoods} />
-      <Category category="Refrigerated" items={refrigerated} />
-      <Category category="Other" items={other} />
+      {produce[0] ? <Category category="Produce" items={produce} /> : null}
+      {meats[0] ? <Category category="Meats" items={meats} /> : null}
+      {dryGoods[0] ? <Category category="Dry Goods" items={dryGoods} /> : null}
+      {refrigerated[0] ? (
+        <Category category="Refrigerated" items={refrigerated} />
+      ) : null}
+      {other[0] ? <Category category="Other" items={other} /> : null}
       <ItemForm />
+      <Footer />
     </>
   );
 }
