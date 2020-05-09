@@ -19,7 +19,8 @@ function Category(props) {
                   {props.items
                     ? props.items.map((item) => (
                         <p key={item._id}>
-                          {item.name} <i class="fas fa-times-circle"></i>
+                          <span className="item-name">{item.name}</span>{" "}
+                          <i class="fas fa-times-circle"></i>
                         </p>
                       ))
                     : null}

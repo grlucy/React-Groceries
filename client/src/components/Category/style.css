@@ -23,3 +23,13 @@
 .flex-width {
   width: calc(40px + 5vw);
 }
+.fa-times-circle {
+  color: #ccc;
+  cursor: pointer;
+}
+.fa-times-circle:hover {
+  color: red;
+}
+.item-name {
+  cursor: pointer;
+}
