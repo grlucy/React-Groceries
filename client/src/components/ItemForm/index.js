@@ -29,7 +29,16 @@ function ItemForm({ submit }) {
               >
                 Add an item!
               </p>
-              <form onSubmit={(e) => submit(e, name, category)}>
+              <form
+                onSubmit={(e) => {
+                  submit(e, name, category);
+                  if (name.trim() === "" || category.trim() === "") {
+                    return;
+                  }
+                  setName("");
+                  setCategory("");
+                }}
+              >
                 <div className="form-row">
                   <div className="col-sm-6 mb-2">
                     <input
@@ -43,7 +52,7 @@ function ItemForm({ submit }) {
                   <div className="col-sm-4 mb-2">
                     <select
                       className="custom-select"
-                      defaultValue=""
+                      value={category}
                       onChange={handleCategoryChange}
                     >
                       <option value="" disabled hidden>
