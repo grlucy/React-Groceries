@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-function ItemForm() {
+function ItemForm({ submit }) {
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+
+  const handleNameChange = (e) => {
+    let newName = e.target.value;
+    setName(newName);
+  };
+
+  const handleCategoryChange = (e) => {
+    let newCategory = e.target.value;
+    setCategory(newCategory);
+  };
+
   return (
     <section className="mt-4">
       <div className="container">
@@ -16,17 +29,23 @@ function ItemForm() {
               >
                 Add an item!
               </p>
-              <form>
+              <form onSubmit={(e) => submit(e, name, category)}>
                 <div className="form-row">
                   <div className="col-sm-6 mb-2">
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Item"
+                      value={name}
+                      onChange={handleNameChange}
                     />
                   </div>
                   <div className="col-sm-4 mb-2">
-                    <select className="custom-select" defaultValue="">
+                    <select
+                      className="custom-select"
+                      defaultValue=""
+                      onChange={handleCategoryChange}
+                    >
                       <option value="" disabled hidden>
                         Category...
                       </option>

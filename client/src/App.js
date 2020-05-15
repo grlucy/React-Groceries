@@ -56,6 +56,13 @@ function App() {
     loadGroceries("Other");
   }, []);
 
+  const handleSubmit = (e, name, category) => {
+    e.preventDefault();
+    console.log("name: ", name);
+    console.log("category: ", category);
+    // submit item json to api route
+  };
+
   return (
     <>
       <div id="main-content">
@@ -95,7 +102,7 @@ function App() {
             ) : null}
           </div>
         </section>
-        <ItemForm />
+        <ItemForm submit={handleSubmit} />
       </div>
       <Footer />
     </>
