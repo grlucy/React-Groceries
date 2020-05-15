@@ -58,9 +58,16 @@ function App() {
 
   const handleSubmit = (e, name, category) => {
     e.preventDefault();
-    console.log("name: ", name);
-    console.log("category: ", category);
-    // submit item json to api route
+    if (name.trim() === "" || category.trim() === "") {
+      return;
+    }
+    const submitItem = {
+      name,
+      category,
+    };
+    API.createItem(submitItem)
+      .then((res) => loadGroceries(category))
+      .catch((err) => console.log(err));
   };
 
   return (
