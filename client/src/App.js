@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import Category from "./components/Category";
 import ItemForm from "./components/ItemForm";
 import Footer from "./components/Footer";
+import Success from "./components/Success";
+import Error from "./components/Error";
 
 function App() {
   const [produce, setProduce] = useState([]);
@@ -15,6 +17,9 @@ function App() {
   const [dryGoods, setDryGoods] = useState([]);
   const [refrigerated, setRefrigerated] = useState([]);
   const [other, setOther] = useState([]);
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const loadGroceries = (category) => {
     switch (category) {
@@ -59,6 +64,8 @@ function App() {
   const handleSubmit = (e, name, category) => {
     e.preventDefault();
     if (name.trim() === "" || category.trim() === "") {
+      setSuccess(false);
+      setError(true);
       return;
     }
     const submitItem = {
@@ -66,7 +73,11 @@ function App() {
       category,
     };
     API.createItem(submitItem)
-      .then((res) => loadGroceries(category))
+      .then((res) => {
+        loadGroceries(category);
+        setError(false);
+        setSuccess(true);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -76,40 +87,42 @@ function App() {
         <Header />
         <section>
           <div className="container">
-            {produce[0] ? (
+            {produce[0] && (
               <Category
                 category="Produce"
                 items={produce}
                 icon="fas fa-apple-alt"
               />
-            ) : null}
-            {meats[0] ? (
+            )}
+            {meats[0] && (
               <Category category="Meats" items={meats} icon="fas fa-fish" />
-            ) : null}
-            {dryGoods[0] ? (
+            )}
+            {dryGoods[0] && (
               <Category
                 category="Dry Goods"
                 items={dryGoods}
                 icon="fas fa-bread-slice"
               />
-            ) : null}
-            {refrigerated[0] ? (
+            )}
+            {refrigerated[0] && (
               <Category
                 category="Refrigerated"
                 items={refrigerated}
                 icon="fas fa-ice-cream"
               />
-            ) : null}
-            {other[0] ? (
+            )}
+            {other[0] && (
               <Category
                 category="Other"
                 items={other}
                 icon="fas fa-toilet-paper"
               />
-            ) : null}
+            )}
           </div>
         </section>
         <ItemForm submit={handleSubmit} />
+        {success && <Success />}
+        {error && <Error />}
       </div>
       <Footer />
     </>
