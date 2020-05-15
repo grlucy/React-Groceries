@@ -8,8 +8,6 @@ import Header from "./components/Header";
 import Category from "./components/Category";
 import ItemForm from "./components/ItemForm";
 import Footer from "./components/Footer";
-import Success from "./components/Success";
-import Error from "./components/Error";
 
 function App() {
   const [produce, setProduce] = useState([]);
@@ -121,8 +119,38 @@ function App() {
           </div>
         </section>
         <ItemForm submit={handleSubmit} />
-        {success && <Success />}
-        {error && <Error />}
+        <section>
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <div className="px-2">
+                  {success && (
+                    <div
+                      className="alert alert-success"
+                      role="alert"
+                      onClick={() => setSuccess(false)}
+                    >
+                      <span className="font-weight-bold">Success!</span>
+                      <br />
+                      New item was added to the list.
+                    </div>
+                  )}
+                  {error && (
+                    <div
+                      className="alert alert-danger"
+                      role="alert"
+                      onClick={() => setError(false)}
+                    >
+                      <span className="font-weight-bold">Error!</span>
+                      <br />
+                      Submission must include both item name and category.
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       <Footer />
     </>
