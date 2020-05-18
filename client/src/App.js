@@ -79,6 +79,16 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  const handleClick = (id, category) => {
+    API.deleteItem(id)
+      .then((res) => {
+        loadGroceries(category);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div id="main-content">
@@ -90,16 +100,23 @@ function App() {
                 category="Produce"
                 items={produce}
                 icon="fas fa-apple-alt"
+                deleteItem={handleClick}
               />
             )}
             {meats[0] && (
-              <Category category="Meats" items={meats} icon="fas fa-fish" />
+              <Category
+                category="Meats"
+                items={meats}
+                icon="fas fa-fish"
+                deleteItem={handleClick}
+              />
             )}
             {dryGoods[0] && (
               <Category
                 category="Dry Goods"
                 items={dryGoods}
                 icon="fas fa-bread-slice"
+                deleteItem={handleClick}
               />
             )}
             {refrigerated[0] && (
@@ -107,6 +124,7 @@ function App() {
                 category="Refrigerated"
                 items={refrigerated}
                 icon="fas fa-ice-cream"
+                deleteItem={handleClick}
               />
             )}
             {other[0] && (
@@ -114,6 +132,7 @@ function App() {
                 category="Other"
                 items={other}
                 icon="fas fa-toilet-paper"
+                deleteItem={handleClick}
               />
             )}
           </div>

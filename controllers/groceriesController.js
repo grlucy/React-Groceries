@@ -13,7 +13,6 @@ exports.itemsByCategory = (req, res) => {
 
 exports.createItem = (req, res) => {
   const newItem = new Item(req.body);
-  console.log("newItem: ", newItem);
   newItem.save((err, item) => {
     if (err) {
       return res.status(400).json({

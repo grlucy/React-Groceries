@@ -7,4 +7,7 @@ export default {
   createItem: function (item) {
     return axios.post("/api/groceries", item);
   },
+  deleteItem: function (id) {
+    return axios.delete(`/api/groceries/${id}`);
+  },
 };
