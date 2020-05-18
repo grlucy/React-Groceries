@@ -23,3 +23,14 @@ exports.createItem = (req, res) => {
     res.json({ item });
   });
 };
+
+exports.deleteItem = (req, res) => {
+  Item.deleteOne({ _id: req.params.id }).exec((err, item) => {
+    if (err || !item) {
+      return res.status(400).json({
+        error: "No item found for that id",
+      });
+    }
+    res.json({ deleted: item });
+  });
+};
