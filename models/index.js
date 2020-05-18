@@ -12,11 +12,6 @@ const itemSchema = new Schema({
     trim: true,
     required: true,
   },
-  status: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
 });
 
 const Item = mongoose.model("Item", itemSchema);

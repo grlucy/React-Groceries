@@ -4,21 +4,21 @@ const Item = require("../models");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/groceries");
 
 const grocerySeed = [
-  { category: "Refrigerated", name: "Milk", status: false },
-  { category: "Refrigerated", name: "Yogurt", status: false },
-  { category: "Refrigerated", name: "Potstickers", status: false },
-  { category: "Produce", name: "Bananas", status: false },
-  { category: "Produce", name: "Broccoli", status: false },
-  { category: "Produce", name: "Tomatoes", status: false },
-  { category: "Meats", name: "Chicken breasts", status: false },
-  { category: "Meats", name: "Lobster", status: false },
-  { category: "Meats", name: "Deli turkey", status: false },
-  { category: "Dry Goods", name: "Crispix", status: false },
-  { category: "Dry Goods", name: "Chicken noodle soup", status: false },
-  { category: "Dry Goods", name: "Mike & Ikes", status: false },
-  { category: "Other", name: "Mouthwash", status: false },
-  { category: "Other", name: "Toilet paper", status: false },
-  { category: "Other", name: "Cat litter", status: false },
+  { category: "Refrigerated", name: "Milk" },
+  { category: "Refrigerated", name: "Yogurt" },
+  { category: "Refrigerated", name: "Potstickers" },
+  { category: "Produce", name: "Bananas" },
+  { category: "Produce", name: "Broccoli" },
+  { category: "Produce", name: "Tomatoes" },
+  { category: "Meats", name: "Chicken breasts" },
+  { category: "Meats", name: "Lobster" },
+  { category: "Meats", name: "Deli turkey" },
+  { category: "Dry Goods", name: "Crispix" },
+  { category: "Dry Goods", name: "Chicken noodle soup" },
+  { category: "Dry Goods", name: "Mike & Ikes" },
+  { category: "Other", name: "Mouthwash" },
+  { category: "Other", name: "Toilet paper" },
+  { category: "Other", name: "Cat litter" },
 ];
 
 Item.deleteMany({}, function (err) {})
